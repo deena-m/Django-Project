@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hover Login Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Georgia', serif; }
+
+    body {
+      background: url('https://images.unsplash.com/photo-1503264116251-35a269479413') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 400px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .emoji {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      transition: transform 0.3s;
+    }
+
+    h2 {
+      text-align: center;
+      color: #4b3c2f;
+      margin-bottom: 1rem;
+    }
+
+    .form { display: none; opacity: 0; transition: opacity 0.5s ease; }
+    .form.show { display: block; opacity: 1; }
+
+    .field {
+      margin-bottom: 1rem;
+    }
+
+    .field input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.9);
+      font-size: 1rem;
+    }
+
+    .field input:focus {
+      border-color: #999;
+      outline: none;
+    }
+
+    .error-msg {
+      color: #c0392b;
+      font-size: 0.85rem;
+      display: none;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #5c3d2e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #3d2c21;
+    }
+
+    .links {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .links a {
+      color: #333;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    #signupForm {
+      margin-top: 1rem;
+      padding: 1rem;
+      background: rgba(34, 34, 34, 0.85);
+      border-radius: 8px;
+    }
+
+    #signupForm input {
+      background: #1c1c1c;
+      color: #f2f2f2;
+      border: 1px solid #555;
+    }
+
+    #signupForm input::placeholder {
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="boxContainer">
+    <div class="emoji" id="faceEmoji">🙂</div>
+    <h2 id="formTitle">Login</h2>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="form">
+      <div class="field"><input type="text" id="loginInput" placeholder="Username or Email" required /></div>
+      <div class="field"><input type="password" id="loginPassword" placeholder="Password" required /></div>
+      <div class="error-msg" id="loginError">😠 Wrong credentials!</div>
+      <button type="submit">Login</button>
+      <div class="links"><a onclick="switchForm('signup')">No account? Create one</a></div>
+    </form>
+
+    <!-- Sign Up Form -->
+    <form id="signupForm" class="form">
+      <div class="field"><input type="text" id="fname" placeholder="First Name" required /></div>
+      <div class="field"><input type="text" id="lname" placeholder="Last Name" required /></div>
+      <div class="field"><input type="email" id="email" placeholder="Email" required /></div>
+      <div class="field"><input type="password" id="password" placeholder="Password" required /></div>
+      <div class="field"><input type="date" id="dob" required /></div>
+      <div class="field"><input type="tel" id="phone" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required /></div>
+      <div class="error-msg" id="signupError">Please fill all fields correctly.</div>
+      <button type="submit">Sign Up</button>
+      <div class="links"><a onclick="switchForm('login')">← Back to Login</a></div>
+    </form>
+  </div>
+
+  <script>
+    const box = document.getElementById("boxContainer");
+    const loginForm = document.getElementById("loginForm");
+    const signupForm = document.getElementById("signupForm");
+    const loginError = document.getElementById("loginError");
+    const signupError = document.getElementById("signupError");
+    const faceEmoji = document.getElementById("faceEmoji");
+    const dob = document.getElementById("dob");
+
+    dob.max = new Date().toISOString().split('T')[0];
+
+    box.addEventListener("mouseenter", () => {
+      loginForm.classList.add("show");
+    });
+
+    function switchForm(to) {
+      loginForm.classList.remove("show");
+      signupForm.classList.remove("show");
+      loginError.style.display = 'none';
+      signupError.style.display = 'none';
+      faceEmoji.textContent = '🙂';
+
+      if (to === "signup") {
+        signupForm.classList.add("show");
+        document.getElementById("formTitle").textContent = "Create Account";
+      } else {
+        loginForm.classList.add("show");
+        document.getElementById("formTitle").textContent = "Login";
+      }
+    }
+
+    signupForm.onsubmit = function (e) {
+      e.preventDefault();
+      const user = {
+        fname: document.getElementById("fname").value.trim(),
+        lname: document.getElementById("lname").value.trim(),
+        username: document.getElementById("username").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        password: document.getElementById("password").value,
+        dob: document.getElementById("dob").value,
+        phone: document.getElementById("phone").value.trim()
+      };
+
+      if (
+        user.fname && user.lname && user.username && user.email &&
+        user.password.length >= 6 && user.phone.match(/^\d{10}$/)
+      ) {
+        localStorage.setItem('user_' + user.email, JSON.stringify(user.email));
+        localStorage.setItem('user_' + user.username, JSON.stringify(user));
+        alert("Account created!");
+        switchForm("login");
+      } else {
+        signupError.style.display = "block";
+      }
+    };
+
+    loginForm.onsubmit = function (e) {
+      
+      e.preventDefault();
+      const input = document.getElementById("loginInput").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      let dummyStorage = {
+      email: "mithun@gmail.com",
+      password: "Mithun@123"
+    };  
+      const dbPassword = dummyStorage.password;
+
+      //const user = JSON.parse(userRaw);
+      console.log('inu+put'+input);
+      console.log('password'+password);
+      console.log('password1'+dbPassword);
+      if (dbPassword) {
+        //const user = JSON.parse(userRaw);
+        if (dbPassword === password) {
+          faceEmoji.textContent = '😃'; // classic happy
+          loginError.style.display = "none";
+          alert("Welcome back, " + input + "!");
+          window.location.href = "http://www.w3schools.com";
+        } else {
+          showAngry();
+        }
+      } 
+      else {
+        showAngry();
+      }
+    };
+
+    function showAngry() {
+      loginError.style.display = "block";
+      faceEmoji.textContent = '😠'; // classic angry
+      setTimeout(() => {
+        faceEmoji.textContent = '🙂';
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
