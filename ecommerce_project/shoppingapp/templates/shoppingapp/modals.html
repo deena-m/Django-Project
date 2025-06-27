@@ -1,0 +1,47 @@
+<!-- Total Sales Modal -->
+<div class="modal fade" id="totalSalesModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="fw-bold text-primary">📈 Total Sales Info</h5>
+      <p>Total items sold this year: <strong>{{ total_sales }}</strong></p>
+      <p>This represents the cumulative number of units sold across all products in {{ selected_year }}.</p>
+      <p>Top-selling product: <strong>{{ top_selling_product.name }}</strong> ({{ top_selling_product.sales }} units)</p>
+    </div>
+  </div>
+</div>
+
+<!-- Avg Price Modal -->
+<div class="modal fade" id="avgPriceModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="fw-bold text-success">💰 Average Price Info</h5>
+      <p>Average product price: <strong>₹{{ avg_price }}</strong></p>
+      <p>This value is calculated from all product prices listed in {{ selected_year }}.</p>
+      <p>Highest price: ₹<strong>{{ max_price }}</strong> | Lowest price: ₹<strong>{{ min_price }}</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- Sold Out Modal -->
+<div class="modal fade" id="soldOutModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="fw-bold text-danger">❌ Sold Out Info</h5>
+      <p>Number of products with zero sales: <strong>{{ sold_out_count }}</strong></p>
+      <p>These products were listed but did not generate any sales in {{ selected_year }}.</p>
+      <p>Consider reviewing their categories or pricing for better marketing.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Active Products Modal -->
+<div class="modal fade" id="activeProductsModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <h5 class="fw-bold text-info">✅ Active Products Info</h5>
+      <p>Number of products that made sales: <strong>{{ sold_count }}</strong></p>
+      <p>This includes all products with sales greater than zero in {{ selected_year }}.</p>
+      <p>Top 3 categories with most sales: <strong>{{ top_categories|join:', ' }}</strong></p>
+    </div>
+  </div>
+</div>
