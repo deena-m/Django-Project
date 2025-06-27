@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Payment</title>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+    <h2>Complete your payment</h2>
+
+    <button id="rzp-button">Pay ₹500</button>
+
+    <script>
+        var options = {
+            "key": "{{ key_id }}",
+            "amount": "{{ payment.amount }}",
+            "currency": "INR",
+            "name": "Flipkart",
+            "description": "Product Payment",
+            "order_id": "{{ payment.id }}",
+            "handler": function (response){
+                window.location.href = "/payment-success/";
+            },
+            "prefill": {
+                "name": "Test User",
+                "email": "test@example.com",
+                "contact": "9999999999"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        document.getElementById('rzp-button').onclick = function(e){
+            rzp1.open();
+            e.preventDefault();
+        }
+    </script>
+</body>
+</html>

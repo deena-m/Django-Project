@@ -1,0 +1,132 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%; 
+    margin: auto;
+}
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100%; 
+}
+.slide img {
+    display: block;
+    width: 100%; 
+}
+.carousel button {
+    position: absolute;
+    top: 50%; 
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.carousel .prev {
+    left: 10px;
+}
+.carousel .next {
+    right: 10px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2874f0;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+.main-nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main-nav .search-bar input {
+    padding: 5px;
+    width: 300px;
+    border-radius: 3px;
+    border: none;
+}
+
+.main-nav .user-links a {
+    color: #fff;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Categories Navbar */
+.categories {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    padding: 10px 20px;
+}
+
+.category-item {
+    text-align: center;
+    position: relative;
+}
+
+.category-item img {
+    height: 40px;
+}
+
+.category-item span {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background: #fff;
+    padding: 15px;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,.2);
+    flex-direction: row;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: flex; /* Show when hovering parent .dropdown */
+}
+
+.dropdown-menu .column {
+    margin-right: 30px;
+}
+
+.dropdown-menu h4 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-menu a {
+    display: block;
+    font-size: 14px;
+    color: #000;
+    text-decoration: none;
+    margin: 5px 0;
+}
+
+.dropdown-menu a:hover {
+    text-decoration: underline;
+}
+

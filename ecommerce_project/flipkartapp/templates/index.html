@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Navbar Demo</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'carouselStyle.css' %}">
+    <!-- At the end of <body> -->
+     
+
+</head>
+<body>
+<!-- Main Navbar -->
+<nav class="main-nav">
+    <div class="logo">shopping</div>
+    <div class="search-bar">
+        <input type="text" placeholder="Search for Products, Brands and More">
+    </div>
+    <div class="user-links">
+        <a href="#">Login</a>
+        <a href="#">Cart</a>
+        <a href="#">Become a Seller</a>
+    </div>
+</nav>
+
+<!-- Categories Navbar -->
+<nav class="categories">
+    <div class="category-item">
+        <img src="{% static 'images/grocery.webp' %}" alt="Grocery">
+        <span>Grocery</span>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/mobiles.webp' %}" alt="Mobiles">
+        <span>Mobiles</span>
+    </div>
+    <div class="category-item dropdown">
+        <img src="{% static 'images/fashion.webp' %}" alt="Fashion">
+        <span>Fashion ▾</span>
+        <div class="dropdown-menu">
+            <div class="column">
+                <h4>Men's Top Wear</h4>
+                <a href="#">All</a>
+                <a href="#">Men's T-Shirts</a>
+                <a href="#">Men's Casual Shirts</a>
+                <a href="#">Men's Formal Shirts</a>
+            </div>
+            <div class="column">
+                <h4>More in Men's Top Wear</h4>
+                <a href="#">Men's Kurtas</a>
+                <a href="#">Men's Ethnic Sets</a>
+                <a href="#">Men's Blazers</a>
+                <a href="#">Men's Raincoat</a>
+                <a href="#">Men's Windcheaters</a>
+                <a href="#">Men's Suit</a>
+            </div>
+        </div>
+    </div>
+    <div class="category-item dropdown">
+        <img src="{% static 'images/electronics.png' %}" alt="Electronics">
+        <span>Electronics ▾</span>
+        <div class="dropdown-menu">
+            <div class="column">
+                <h4>Mobiles</h4>
+                <a href="#">Smartphones</a>
+                <a href="#">Feature Phones</a>
+            </div>
+            <div class="column">
+                <h4>More in Electronics</h4>
+                <a href="#">Headphones</a>
+                <a href="#">Smart Watches</a>
+            </div>
+        </div>
+    </div>
+    <div class="category-item dropdown">
+        <img src="{% static 'images/home.jpg' %}" alt="Home & Furniture">
+          <span>Beauty, Toys & More ▾</span>
+        <div class="dropdown-menu">
+            <div class="column">
+                <h4>Home Furnishings</h4>
+                <a href="#">Furniture</a>
+                <a href="#">Living Room Furniture</a>
+                <a href="#">Kitchen & Dining</a>
+                <a href="#">Bedroom Furniture</a>
+                <a href="#">Space Saving Furniture</a>
+                <a href="#">Home Decor</a>
+                <a href="#">Tools & Utility</a>
+                <a href="#">Work Space Furniture</a>
+                <a href="#">Kids Furniture</a>
+                <a href="#">Lightings & Electricals</a>
+                <a href="#">Cleaning & Bath</a>
+            </div>
+            <div class="column">
+                <h4>More in Home Furnishings</h4>
+                <a href="#">All</a>
+                <a href="#">Bed Linens</a>
+                <a href="#">Bedsheets</a>
+                <a href="#">Blankets</a>
+                <a href="#">Curtains & Accessories</a>
+                <a href="#">Bath linen</a>
+                <a href="#">Floor coverings</a>
+                <a href="#">Covers & protectors</a>
+                <a href="#">Cushions & Pillows</a>
+                <a href="#">Kitchen Linen Sets</a>
+                <a href="#">Table Linen Sets</a>
+                <a href="#">Sofa & curtain fabrics</a>
+            </div>
+        </div>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/appliances.webp' %}" alt="Appliances">
+        <span>Appliances</span>
+    </div>
+    <div class="category-item">
+        <img src="{% static 'images/flights.webp' %}" alt="Flight Bookings">
+        <span>Flight Bookings</span>
+    </div>
+    <div class="category-item dropdown">
+        <img src="{% static 'images/beauty.png' %}" alt="Beauty, Toys & More">
+        <span>Beauty, Toys & More ▾</span>
+          <div class="dropdown-menu">
+            <div class="column">
+                <h4>Beauty & Personal Care</h4>
+                <a href="#">Men's Grooming</a>
+                <a href="#">Food & Drinks</a>
+                <a href="#">Nutrition & Health Care</a>
+                <a href="#">Baby Care</a>
+                <a href="#">Toys & School Supplies</a>
+                <a href="#">Sports & Fitness</a>
+                <a href="#">Books</a>
+                <a href="#">Music</a>
+                <a href="#">Stationery & Office Supplies</a>
+                <a href="#">Auto Accessories</a>
+                <a href="#">Safety & Hygiene Essentials</a>
+            </div>
+            <div class="column">
+                <h4>More in Beauty & Personal Care</h4>
+                <a href="#">View All</a>
+                <a href="#">Bath & Oral Care</a>
+                <a href="#">Personal Hygiene</a>
+                <a href="#">Eye Makeup</a>
+                <a href="#">Face Makeup</a>
+                <a href="#">Lip Makeup</a>
+                <a href="#">Hair Care</a>
+                <a href="#">Bath Essentials</a>
+                <a href="#">Women's Personal Hygiene</a>
+                <a href="#">Body & Skin Care</a>
+                <a href="#">Top Brand Deals</a>
+            </div>
+        </div>
+    </div>
+    <div class="category-item dropdown">
+        <img src="{% static 'images/twowheelers.png' %}" alt="Two Wheelers">
+        <span>Two Wheelers ▾</span>
+          <div class="dropdown-menu">
+            <div class="column">
+                <h4>Petrol Vehicles</h4>
+                <a href="#">All</a>
+                <a href="#">Bikes</a>
+                <a href="#">Scooters</a>
+            </div>
+            <div class="column">
+                <h4>More in Two Wheelers</h4>
+                <a href="#">Electric Vehicles</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="carousel" id="mainCarousel">
+    <div class="carousel-inner">
+        <!-- Replace with your actual images -->
+        <div class="slide"><img src="{% static 'images/image1.webp' %}" alt="Image 1"></div>
+        <div class="slide"><img src="{% static 'images/image2.webp' %}" alt="Image 2"></div>
+        <div class="slide"><img src="{% static 'images/image3.webp' %}" alt="Image 3"></div>
+    </div>
+    <button class="prev">&lt;</button>
+    <button class="next">&gt;</button>
+</div>
+
+
+
+<script src="{% static 'carousel.js' %}"></script>
+</body>
+</html>
